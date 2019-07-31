@@ -1,0 +1,6 @@
+
+option(
+    'enable_nv_exts',
+    type : 'feature',
+    description : 'Enable support for Nvidia-specific extensions'
+)
