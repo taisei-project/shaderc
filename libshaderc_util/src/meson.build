@@ -1,5 +1,6 @@
 
 shaderc_util_src = files(
+    'args.cc',
     'compiler.cc',
     'file_finder.cc',
     'io.cc',
