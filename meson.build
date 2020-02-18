@@ -2,7 +2,7 @@ project('shaderc', 'cpp',
     version : run_command('meson-tools/get-version.py').stdout().strip(),
     meson_version : '>=0.47.0',
     default_options : [
-        'cpp_std=c++11',
+        'cpp_std=gnu++11',
     ]
 )
 
