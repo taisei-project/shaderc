@@ -12,4 +12,5 @@ glslc_native = executable('glslc',
     dependencies : [shaderc_native_dep, shaderc_util_native_dep, glslang_native_dep],
     build_by_default : false,
     native : true,
+    override_options : native_options,
 )

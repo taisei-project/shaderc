@@ -6,6 +6,14 @@ project('shaderc', 'cpp',
     ]
 )
 
+native_options = [
+    'b_lto=false',
+    'b_ndebug=true',
+    'b_sanitize=none',
+    'debug=false',
+    'optimization=0',
+]
+
 glslang_dep = dependency('glslang', fallback : ['glslang', 'glslang_dep'])
 spirv_tools_dep = dependency('SPIRV-Tools', fallback : ['SPIRV-Tools', 'spirv_tools_opt_dep'])
 

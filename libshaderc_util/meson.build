@@ -21,6 +21,7 @@ libshaderc_util_native = static_library('shaderc_util_native',
     include_directories : shaderc_util_incdirs,
     build_by_default : false,
     native : true,
+    override_options : native_options,
 )
 
 shaderc_util_native_dep = declare_dependency(
