@@ -203,6 +203,7 @@ class Compiler {
         source_language_(SourceLanguage::GLSL),
         limits_(kDefaultTBuiltInResource),
         auto_bind_uniforms_(false),
+        auto_bind_set_(0),
         auto_combined_image_sampler_(false),
         auto_binding_base_(),
         auto_map_locations_(false),
@@ -291,6 +292,9 @@ class Compiler {
   // Set whether the compiler automatically assigns bindings to
   // uniform variables that don't have explicit bindings.
   void SetAutoBindUniforms(bool auto_bind) { auto_bind_uniforms_ = auto_bind; }
+
+  // Set the descriptor set for automatically assigned uniform bindings.
+  void SetAutoBindDescriptorSet(uint32_t set) { auto_bind_set_ = set; }
 
   // Sets whether the compiler should automatically remove sampler variables
   // and convert image variables to combined image-sampler variables.
@@ -525,6 +529,9 @@ class Compiler {
   // True if the compiler should automatically bind uniforms that don't
   // have explicit bindings.
   bool auto_bind_uniforms_;
+
+  // Descriptor set to assign for automatically bound uniforms.
+  uint32_t auto_bind_set_;
 
   // True if the compiler should automatically remove sampler variables
   // and convert image variables to combined image-sampler variables.

@@ -285,8 +285,16 @@ std::tuple<bool, std::vector<uint32_t>, size_t> Compiler::Compile(
   shader.setShiftUavBinding(
       bases[static_cast<int>(UniformKind::UnorderedAccessView)]);
   shader.setHlslIoMapping(hlsl_iomap_);
-  shader.setResourceSetBinding(
-      hlsl_explicit_bindings_[static_cast<int>(used_shader_stage)]);
+
+  if (auto_bind_uniforms_ != 0) {
+    auto bindings = hlsl_explicit_bindings_[static_cast<int>(used_shader_stage)];
+    bindings.push_back(std::to_string(auto_bind_set_));
+    shader.setResourceSetBinding(bindings);
+  } else {
+    shader.setResourceSetBinding(
+        hlsl_explicit_bindings_[static_cast<int>(used_shader_stage)]);
+  }
+
   shader.setEnvClient(target_client_info.client,
                       target_client_info.client_version);
   shader.setEnvTarget(target_client_info.target_language,

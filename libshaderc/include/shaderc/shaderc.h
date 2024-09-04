@@ -458,6 +458,10 @@ SHADERC_EXPORT void shaderc_compile_options_set_binding_base_for_stage(
     shaderc_compile_options_t options, shaderc_shader_kind shader_kind,
     shaderc_uniform_kind kind, uint32_t base);
 
+// Sets the descriptor set for automatically assigned uniform bindings.
+SHADERC_EXPORT void shaderc_compile_options_set_binding_descriptor_set(
+    shaderc_compile_options_t options, uint32_t set);
+
 // Sets whether the compiler should preserve all bindings, even when those
 // bindings are not used.
 SHADERC_EXPORT void shaderc_compile_options_set_preserve_bindings(

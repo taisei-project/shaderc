@@ -503,6 +503,11 @@ void shaderc_compile_options_set_auto_bind_uniforms(
   options->compiler.SetAutoBindUniforms(auto_bind);
 }
 
+void shaderc_compile_options_set_binding_descriptor_set(
+    shaderc_compile_options_t options, uint32_t set) {
+  options->compiler.SetAutoBindDescriptorSet(set);
+}
+
 void shaderc_compile_options_set_auto_combined_image_sampler(
     shaderc_compile_options_t options, bool upgrade) {
   options->compiler.SetAutoCombinedImageSampler(upgrade);
