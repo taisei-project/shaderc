@@ -7,6 +7,7 @@ libshaderc_util = static_library('shaderc_util',
     dependencies : [glslang_dep, spirv_tools_dep],
     include_directories : shaderc_util_incdirs,
     build_by_default : false,
+    override_options : cross_options,
 )
 
 shaderc_util_dep = declare_dependency(

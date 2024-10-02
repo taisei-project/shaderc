@@ -7,6 +7,7 @@ libshaderc = static_library('shaderc',
     dependencies : [shaderc_util_dep, glslang_dep, spirv_tools_dep, spirv_headers_dep],
     include_directories : shaderc_incdirs,
     build_by_default : not meson.is_subproject(),
+    override_options : cross_options,
 )
 
 shaderc_dep = declare_dependency(
